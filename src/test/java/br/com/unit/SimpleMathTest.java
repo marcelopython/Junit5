@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test math operations SimpleMath")
 public class SimpleMathTest {
 
+    SimpleMath math;
 
 //    Primeiro ser rodado
 //    setup()
@@ -32,6 +33,17 @@ public class SimpleMathTest {
         System.out.println("Running @AfterAll method!");
     }
 
+    @BeforeEach
+    void beforeEachMethod() {
+        System.out.println("Running @BeforeEach method!");
+        this.math = new SimpleMath();
+    }
+
+    @AfterEach
+    void afterEachMethod() {
+        System.out.println("Running @AfterEach method!");
+    }
+
     // test[System Under Test]_[Condition or State Change]_[Expected Result]
     @Test
     @DisplayName("Test 6.2 + 2 = 8.2")
@@ -40,7 +52,7 @@ public class SimpleMathTest {
         // AAA Arrange, Act, Assert
 
         // Given (Onde prepara as variaveis o que vai ser testado) Arrange
-            SimpleMath math = new SimpleMath();
+
             double firstNumber = 6.2D;
             double secondNumber = 2D;
 
@@ -62,8 +74,6 @@ public class SimpleMathTest {
     @Test
     void testSubtraction() {
         System.out.println("Teste testSubtraction");
-
-        SimpleMath math = new SimpleMath();
         double actual = math.subtraction(1.0D, 2.0D);
         double expected = -1.0D;
         assertEquals(expected, actual, () -> "expected is not "+expected );
@@ -72,8 +82,6 @@ public class SimpleMathTest {
     @Test
     void testMultiplication() {
         System.out.println("Teste testMultiplication");
-
-        SimpleMath math = new SimpleMath();
         double actual = math.multiplication(2.0D, 2.0D);
         double expected = 4.0D;
         assertEquals(expected, actual, () -> "expected is not "+ expected);
@@ -82,8 +90,6 @@ public class SimpleMathTest {
     @Test
     void testDivision() {
         System.out.println("Teste testDivision");
-
-        SimpleMath math = new SimpleMath();
         double actual = math.division(2.0D, 2.0D);
         double expected = 1.0D;
         assertEquals(expected, actual, () -> "expected is not "+ expected);
@@ -92,8 +98,6 @@ public class SimpleMathTest {
     @Test
     void testMean() {
         System.out.println("Teste testMean");
-
-        SimpleMath math = new SimpleMath();
         double actual = math.mean(2.0D, 2.0D);
         double expected = 2.0D;
         assertEquals(expected, actual, () -> "expected is not "+ expected);
@@ -102,8 +106,6 @@ public class SimpleMathTest {
     @Test
     void testSquareRoot() {
         System.out.println("Teste testSquareRoot");
-
-        SimpleMath math = new SimpleMath();
         double actual = math.squareRoot(3.0D);
         double expected = 1.7320508075688772D;
         assertEquals(expected, actual, () -> "expected is not "+ expected);
