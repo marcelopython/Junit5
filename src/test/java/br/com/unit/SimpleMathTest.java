@@ -64,10 +64,23 @@ public class SimpleMathTest {
             assertEquals(expected, actual, () -> "The testSum() did not produce expected result");
     }
 
-    @Disabled("TODO: we need")
+//    @Disabled("TODO: we need")
     @Test
     void testDivision_When_firstNumberIsDividedByZero_ShouldThrowArithmeticException() {
-        System.out.println("Teste testDivision_When_firstNumberIsDividedByZero_ShouldThrowArithmeticException");
+
+        // given
+        double firstNumber = 2D;
+        double secondNumber = 0D;
+
+        String expectedMessage = "Impossible to divide by zero!";
+
+        ArithmeticException actual = assertThrows(ArithmeticException.class,
+                // when & then
+                () -> math.division(firstNumber, secondNumber),
+                () -> "Division by zero should throw an ArithmeticException"
+        );
+
+        assertEquals(expectedMessage, actual.getMessage());
 
     }
 
